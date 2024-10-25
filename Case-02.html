@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case 01</title>
+</head>
+<style>
+    body {
+        background-color: #3c464f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #topOuter, #BottomOuter {
+        width: 100px;
+        height: 30px;
+    }
+    #topOuter {
+        margin-left: -500px;
+    }
+    #BottomOuter {
+        margin-right: -500px;
+    }
+
+    #Inner {
+        display: flex;
+        gap: 10px;
+    }
+
+    .box {
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    hr {
+        width: 600px;
+        border: 1px solid #fff;
+        margin: 10px 0;
+    }
+
+    .pink {
+        background-color: lightpink;
+    }
+
+    .pink-light {
+        background-color: mediumpurple;
+    }
+
+    .red {
+        background-color: #ed2224;
+    }
+
+    .green {
+        background-color: #227126;
+    }
+
+    .blue {
+        background-color: #2850ee;
+    }
+
+    .yellow {
+        background-color: #f0dc38;
+    }
+
+</style>
+<body>
+<section>
+    <div id="topOuter" class="box pink"></div>
+    <hr>
+    <div id="Inner">
+        <div class="box pink-light"></div>
+        <div class="box red"></div>
+        <div class="box green"></div>
+        <div class="box blue"></div>
+    </div>
+    <hr>
+    <div id="BottomOuter" class="box yellow"></div>
+</section>
+
+
+<script>
+    let boxes = ["pink", "pink-light","red", "green","blue","yellow"];
+
+    setInterval(() => {
+        let last_Box = boxes.pop();
+        boxes.unshift(last_Box);
+
+        let boxElements = document.querySelectorAll(".box");
+
+        for(let i = 0; i < boxElements.length; i++) {
+            boxElements[i].className = `box ${boxes[i]}`;
+        }
+    }, 2000);
+</script>
+</body>
